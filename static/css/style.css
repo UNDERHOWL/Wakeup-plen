@@ -1,0 +1,12 @@
+body {
+    background-color:rgb(224, 224, 224);
+}
+
+strong {
+    background: linear-gradient(transparent 30%, rgb(155, 178, 215) 30%);
+}
+
+body{
+    overflow-x: hidden;
+}
+

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block contents %}
+
+<h2><center>募集する</center></h2>
+<p><center>
+    本文には　<strong>起こしてほしい時間</strong>　と　<strong>obnizID</strong>　を入力してください
+</center></p>   
+<div class="col-md-6 offset-md-3">
+    <div class="card">
+      <div class="card-body">
+             
+<form action="" method="POST">
+    <center>{{ form.as_p }}</center>
+    <button type="submit" class="btn btn-dark btn-lg btn-block">送信</button>
+    {% csrf_token %}
+    </form>
+
+{% endblock %}

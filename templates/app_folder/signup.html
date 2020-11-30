@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block contents %}
+
+<h2><center><font  face="瀬戸フォントSP_sjis版">サインアップ</font></center></h2>
+  <form method="post">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-body">        
+          {% csrf_token %}
+          {% for field in form %}
+            <p>
+              {{ field.label_tag }}<br>
+              {{ field }}
+              {% if field.help_text %}
+                <small style="color: grey">{{ field.help_text }}</small>
+              {% endif %}
+              {% for error in field.errors %}
+                <p style="color: red">{{ error }}</p>
+              {% endfor %}
+            </p>
+          {% endfor %}
+          <div>
+          <button type="submit" class="btn btn-dark btn-lg btn-block">ユーザー登録</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="/top_page">戻る</a>
+  {% csrf_token %}
+  </form>
+{% endblock %}

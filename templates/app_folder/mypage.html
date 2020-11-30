@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block contents %}
+
+<center><h2>ユーザー情報</h2>
+{% if user.is_authenticated %}
+
+<p>{{ user.get_username }}<br></p>
+<a class="btn btn-dark" href="/logout" role="button"><font color=white>ログアウトする</font></a>
+
+{% else %}
+
+<a href="/login">ログインする<BR></a>
+
+{% endif %}
+
+
+</center>
+{% endblock %}

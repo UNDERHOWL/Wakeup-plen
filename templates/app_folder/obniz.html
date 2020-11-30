@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block contents %}
+<div class="col-md-6 offset-md-3">
+    <div class="card">
+        <div class="card-body">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://obniz.io/js/jquery-3.2.1.min.js"></script>
+  <script src="https://unpkg.com/obniz@latest/obniz.js"></script>
+</head>
+<body>
+    <center>
+  <div id="obniz-debug"></div>
+  <h1>SEND</h1>
+  <button id="buttonA" class="btn btn-dark" style="width:45%;height:100px;font-size:50px;">Wake up bro</button>
+  </center>
+  <script>
+    var obniz = new Obniz("");
+  obniz.onconnect = async function () {
+    var uart = obniz.getFreeUart();
+uart.start({tx: 0, rx: 26, baud:115200 });
+$("#buttonA").on("click",function(){
+  uart.send("A\n");
+});
+  };
+  </script>
+</body>
+</div>
+    </div>
+    </div>
+    
+{% endblock %}
